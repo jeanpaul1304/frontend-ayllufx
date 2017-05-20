@@ -15,3 +15,21 @@
     margin:0 auto;
     padding: 5px 0;
 }
+.ctn-addon{
+    font-size: 0;
+}
+
+.input-group .ctn-addon span, .input-group .ctn-addon input{
+    display: inline-block;
+    height: 34px;
+    vertical-align: top;
+    font-size: 14px;
+}
+.input-group .ctn-addon span{
+    width: 8%;
+    vertical-align: middle;
+    line-height: 22px;
+}
+.input-group .ctn-addon input{
+    width: 92%;
+}

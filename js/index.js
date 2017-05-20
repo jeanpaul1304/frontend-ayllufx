@@ -1,7 +1,6 @@
 $(document).ready(function(){
    
 
-console.log('is ready')
 function checkboxChange(){
  $('.js-btn-radios').on('click',function(e){
      $this = $(this)

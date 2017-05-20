@@ -36,6 +36,14 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Cotiza</div>
                 <div class="panel-body panel--register-exchange">
+                    <div class="radio-group text-center">
+                        <div class="btn-group" role="group">
+                            <label for="toCurrencyPEN" class="js-btn-radios btn btn-default">USD a PEN</label>
+                            <input type="radio" checked="true" class="hide" value="PEN" name="toCurrency" id="toCurrencyPEN">
+                            <label for="toCurrencyUSD" class="js-btn-radios btn btn-default">PEN a USD</label>
+                            <input type="radio" class="hidden" value="USD" name="toCurrency" id="toCurrencyUSD">
+                        </div>
+                    </div>
                     <h4 class="text-center">
                         Tenemos el mejor tipo de cambio para ti: 
                         <span class="show-amount">3.250</span>
@@ -44,13 +52,19 @@
                         <label for="myMoney">
                             Tu tienes
                         </label>
-                        <input type="text" class="form-control" name="myMoney" id="myMoney">
+                        <div class="ctn-addon">
+                            <span class="input-group-addon" id="myCurrecy">S/</span>
+                            <input type="text" class="form-control" name="myMoney" id="myMoney">
+                        </div>
                     </div>
                     <div class="input-group">
                         <label for="myCashback">
                             Te entregamos
                         </label>
-                        <input type="text" class="form-control" name="myCashback" id="myCashback">
+                        <div class="ctn-addon">
+                            <span class="input-group-addon" id="platformCurrecy">$</span>
+                            <input type="text" class="form-control" name="myMoney" id="myCashback">
+                        </div>
                     </div>
                     <div class="input-group">
                         <label for="bankAccount">Depositaras en:</label>
@@ -84,7 +98,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">Registrar cambio</div>
@@ -92,15 +105,6 @@
                     <form id="registerExchange">
                         <input type="hidden" id="user" name="user" value="john doe">
                         <input type="hidden" id="exchangeRate"  name="exchangeRate" value="3.25">
-                        
-                        <div class="radio-group text-center">
-                            <div class="btn-group" role="group">
-                                <label for="toCurrencyPEN" class="js-btn-radios btn btn-default">USD a PEN</label>
-                                <input type="radio" checked="true" class="hide" value="PEN" name="toCurrency" id="toCurrencyPEN">
-                                <label for="toCurrencyUSD" class="js-btn-radios btn btn-default">PEN a USD</label>
-                                <input type="radio" class="hidden" value="USD" name="toCurrency" id="toCurrencyUSD">
-                            </div>
-                        </div>
                         <div class="input-group">
                             <label for="amount">Monto</label>
                             <input type="text" class="form-control" name="amount" id="monto">
@@ -151,5 +155,6 @@
                 </div>
             </div>
         </div>
+    </div>
 </body>
 </html>
