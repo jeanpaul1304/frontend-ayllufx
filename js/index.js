@@ -1,3 +1,18 @@
+$(document).ready(function(){
+   
+
+console.log('is ready')
+function checkboxChange(){
+ $('.js-btn-radios').on('click',function(e){
+     $this = $(this)
+     $this.parent().find('.active').removeClass('active')
+     $this.addClass('active')
+ })
+}
+checkboxChange()
+
+$('#bankClientAccount').selectpicker('refresh');
+$('#bankAylluAccount').selectpicker('refresh');
 
 function cargarTablaMarcacionesAyer(){
 	var user = $("#user").val();
@@ -16,16 +31,15 @@ function cargarTablaMarcacionesAyer(){
 	
 	var data ={
 		idCliente:user,
- tipoCambio:exchangeRate,
- cuentaBancoDestino:clientAccount,
- bancoDestino:bankClientAccount,
- montoEntregado:amount,
- bancoOperacion:bankAylluAccount,
- numeroOperacion:operationNumber,
- monedaOrigen:toCurrencyValue,
- monedaDestino:(toCurrencyValue=="PEN"?"PEN":"USD"),
- mail:mail
-
+        tipoCambio:exchangeRate,
+        cuentaBancoDestino:clientAccount,
+        bancoDestino:bankClientAccount,
+        montoEntregado:amount,
+        bancoOperacion:bankAylluAccount,
+        numeroOperacion:operationNumber,
+        monedaOrigen:toCurrencyValue,
+        monedaDestino:(toCurrencyValue=="PEN"?"PEN":"USD"),
+        mail:mail
 	}; 
 
 	/*
@@ -48,7 +62,8 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 	  				  alert("Ocurrio un error");
 	                  return -2;
 	              }
-		});
-}
+            });
+    }
 
 
+});
