@@ -10,8 +10,12 @@ $('#bankToPay').selectpicker('refresh');
 function bindCalculator(){
     $('.js-btn-radios').on('click',function(){
         let $this = $(this)
+        cleanAll()
         console.log($this.val())
     })
+}
+function cleanAll(){
+    $('input[type="text"]').val('')
 }
 bindCalculator()
 });
