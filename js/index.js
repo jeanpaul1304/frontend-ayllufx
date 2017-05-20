@@ -1,18 +1,19 @@
 $(document).ready(function(){
    
 
-console.log('is ready')
+console.log('is ready');
+checkboxChange();
+
+$('#bankClientAccount').selectpicker('refresh');
+$('#bankAylluAccount').selectpicker('refresh');
+});
 function checkboxChange(){
  $('.js-btn-radios').on('click',function(e){
      $this = $(this)
      $this.parent().find('.active').removeClass('active')
      $this.addClass('active')
- })
+ });
 }
-checkboxChange()
-
-$('#bankClientAccount').selectpicker('refresh');
-$('#bankAylluAccount').selectpicker('refresh');
 
 function crearSolicitud(){
 	var user = $("#user").val();
@@ -61,7 +62,7 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 		type: "POST",
 		//datatype: 'json',
 		//contentType: false,
-		url: "http://192.168.65.25:8080/Ayllufx_rest/restDummy/solicitud/registro?"+data, 
+		url: "http://192.168.65.25:8080/Ayllufx_rest/restDummy/solicitud/registro"+data, 
 		
 		success: function(data) {
 				
@@ -76,4 +77,3 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
     }
 
 
-});
