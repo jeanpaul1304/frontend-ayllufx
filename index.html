@@ -31,11 +31,16 @@ checkboxChange();
 $('#bankClientAccount').selectpicker('refresh');
 
 $('#bankToPay').selectpicker('refresh');
-bindCalculator();
 
 function bindCalculator(){
     $('.js-btn-radios').on('click',function(){
         let $this = $(this)
+        cleanAll()
+        if($this.data('currency') == 'PEN'){
+            changeAllToPen()
+        }else{
+            changeAlltoDollar()
+        }
     })
 }
 
@@ -61,29 +66,19 @@ bindCalculator()
             </div>
             <div class="col-md-2" >
             <div class="navbar">
-                <a href="javascript:;" class="navbar-brand">
+                <a href="index.html" class="navbar-brand">
                     Nueva Solicitud
                 </a>
             </div>
             </div>
             <div class="col-md-2" >
             <div class="navbar">
-                <a href="javascript:;" class="navbar-brand">
+                <a href="indexAdmin.html" class="navbar-brand">
                     Mis Solicitudes
                 </a>
             </div>
             </div>
         </div>
-    </nav>
-     <nav  class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuInfo" class="active"  onclick="cambiarVista('Info');"><a href="#">¿Cómo Funciona?</a></li>
-              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuCompara"   onclick="cambiarVista('U');"><a href="#">Compara</a></li>
-              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuCalculadora"  onclick="cambiarVista('C');"><a href="#">Calculadora</a></li>
-              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuGrafico"  onclick="cambiarVista('G');"><a href="#">Analiza</a></li>
-              <!--li><a href="#">Login</a></li-->
-            </ul>
-          </div>
     </nav>
     <div class="container main-container" >
         <div class="panel panel-primary" id="paso1">
@@ -91,8 +86,8 @@ bindCalculator()
                 <div class="panel-body panel--register-exchange">
                     <div class="radio-group text-center">
                         <div class="btn-group" role="group">
-                            <label for="toCurrencyPEN" data-currency="PEN" class="js-btn-radios btn btn-default active">USD a PEN</label>
-                            <label for="toCurrencyUSD" data-currency="USD" class="js-btn-radios btn btn-default">PEN a USD</label>
+                            <label for="toCurrencyPEN" data-currency="PEN" data-value="soles" class="js-btn-radios btn btn-default active">USD a PEN</label>
+                            <label for="toCurrencyUSD" data-currency="USD" data-value="dolar" class="js-btn-radios btn btn-default">PEN a USD</label>
                         </div>
                     </div>
                     <h4 class="text-center">
@@ -224,7 +219,7 @@ bindCalculator()
                         </div>
                         <div class="input-group">
                             <label for="account">Cuenta de deposito</label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="clientAccount" class="form-control">
                         </div>
                         <!--<div class="input-group">
                             <label for="operationNumber"># de operación</label>

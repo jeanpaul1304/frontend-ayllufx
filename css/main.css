@@ -1,8 +1,8 @@
 .panel--register-exchange *{
     float:none !important;
 }
-.main-container{
-    margin-top:20px;
+body{
+    margin-top:68px;
 }
 .button-group{
     margin-top:10px;
@@ -51,8 +51,27 @@
 }
 
 
-@media only screen and (max-width: 500px) {
+nav .col-md-2 .navbar a{
+    font-size:14px;
+}
+@media only screen and (max-width: 992px) {
+    body{
+      margin-top:119px;  
+    }
+    .main-table{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 763px) {
     .panel--register-exchange .input-group, .panel--register-exchange .button-group{
         width: 100%
     }
+    body{
+      margin-top:165px;  
+    }
+}
+.ctn-overflow-table{
+    width: 100%;
+    overflow: auto;
 }
