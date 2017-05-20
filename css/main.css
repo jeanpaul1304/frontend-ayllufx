@@ -33,3 +33,10 @@
 .input-group .ctn-addon input{
     width: 92%;
 }
+
+.ctn-resumen label{
+    width: 40%;
+}
+.ctn-resumen span{
+    width: 59%;
+}

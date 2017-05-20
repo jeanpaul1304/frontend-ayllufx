@@ -38,10 +38,8 @@
                 <div class="panel-body panel--register-exchange">
                     <div class="radio-group text-center">
                         <div class="btn-group" role="group">
-                            <label for="toCurrencyPEN" class="js-btn-radios btn btn-default">USD a PEN</label>
-                            <input type="radio" checked="true" class="hide" value="PEN" name="toCurrency" id="toCurrencyPEN">
-                            <label for="toCurrencyUSD" class="js-btn-radios btn btn-default">PEN a USD</label>
-                            <input type="radio" class="hidden" value="USD" name="toCurrency" id="toCurrencyUSD">
+                            <label for="toCurrencyPEN" data-currency="PEN" class="js-btn-radios btn btn-default active">USD a PEN</label>
+                            <label for="toCurrencyUSD" data-currency="USD" class="js-btn-radios btn btn-default">PEN a USD</label>
                         </div>
                     </div>
                     <h4 class="text-center">
@@ -53,8 +51,8 @@
                             Tu tienes
                         </label>
                         <div class="ctn-addon">
-                            <span class="input-group-addon" id="myCurrecy">S/</span>
-                            <input type="text" class="form-control js-txt-amount" name="myMoney" id="myMoney">
+                            <span class="input-group-addon js-myCurrency" id="">S/</span>
+                            <input type="text" class="form-control js-myMoney js-myMoneyFirst" name="myMoney" id="myMoney">
                         </div>
                     </div>
                     <div class="input-group">
@@ -62,36 +60,59 @@
                             Te entregamos
                         </label>
                         <div class="ctn-addon">
-                            <span class="input-group-addon" id="platformCurrecy">$</span>
+                            <span class="input-group-addon js-platformCurrecy">$</span>
                             <input type="text" class="form-control js-txt-changeAmount" name="myMoney" id="myCashback">
                         </div>
                     </div>
-                    <div class="input-group">
-                        <label for="bankAccount">Depositaras en:</label>
-                        <div class="selectContainer">
-                            <select name='bankToPay' id='bankToPay' class="select-picker" >
-                                <option value="1">BCP</option>
-                                <option value="2">BBVA Continental</option>
-                                <option value="3">Interbank</option>
-                                <option value="4">Scotiabank</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="ctn-resumen">
+                    <div class="input-group ctn-resumen">
                         <h3>Resumen</h3>
                         <ul>
                             <li>
-                                <label>Valor al tipo de cambio</label><span>$ 1538.46</span>
+                                <label>Te entregamos:</label>
+                                <span class="js-finalCash"></span>
                             </li>
                             <li>
-                                <label>Comisión</label><span>$ 3.08</span>
-                            </li>
-                            <li>
-                                <label>Te entregamos</label><span>$ 1535.38</span>
+                                <label>Comisión:</label>
+                                <span class="js-finalComision"></span>
                             </li>
                         </ul>
                     </div>
-                    
+                    <div class="input-group">
+                        <label for="bankAccount">Depositas o transfieres a:</label>
+                        <div class="selectContainer">
+                            <select name='bankToPay' id='bankToPay' class="select-picker">
+                                <option value="">Seleccione una cuenta</option>
+                                <option value="1" data-value="193-23242443-9-12">BCP</option>
+                                <option value="2" data-value="12-323424232-23-2">BBVA Continental</option>
+                                <option value="3" data-value="233-232832211">Interbank</option>
+                                <option value="4" data-value="123-434-3222-33">Scotiabank</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group ctn-resumen">
+                        <h3>Estas a un paso de cambiar tu dinero a una tasa increible!</h3>
+                        <ul>
+                            <li>
+                                <label for="#">Monto a depositar:</label>
+                                <span class="js-initialCash"></span>
+                            </li>
+                            <li>
+                                <label for="">Número de cuenta:</label>
+                                <span class="js-aylluaccount"></span>
+                            </li>
+                            <li>
+                                <label for="">Código interbancario:</label>
+                                <span class="js-aylluaccountCCI"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input-group">
+                        <div class="alert alert-warning" role="alert">
+                            <h4>Recuerda!</h4>
+                            <p>Puedes usar las web o aplicaciones de los bancos para realizar rapidamente tu deposito</p>
+                            <p>Luego de realizada tu operacion, copia el número para terminar con el proceso</p>
+                        </div>
+                    </div>
                     <div class="input-group">
                         <label for="operationNumber"># de operación</label>
                         <input type="text" class="form-control js-txt-numope" name="operationNumber" id="operationNumber" >
@@ -112,14 +133,20 @@
                         <input type="hidden" id="exchangeRate"  name="exchangeRate" value="3.25">
                         <div class="input-group">
                             <label for="amount">Monto</label>
-                            <input type="text" class="form-control js-txt-amount" name="amount" id="monto">
+                            <div class="ctn-addon">
+                                <span class="input-group-addon js-myCurrency" id="">S/</span>
+                                <input type="text" class="form-control js-myMoney" readonly name="amount" id="monto">
+                            </div>
                         </div>
                         <div class="input-group">
-                            <label for="">Monto de cambio aproximado</label>
-                            <input type="text" class="form-control js-txt-changeAmount" name="aproxAmount" id="aproxAmount">
+                            <label for="">Monto de cambio</label>
+                            <div class="ctn-addon">
+                                <span class="input-group-addon js-platformCurrecy">$</span>
+                                <input type="text" class="form-control js-txt-changeAmount" readonly name="aproxAmount" id="aproxAmount">
+                            </div>
                         </div>
                         <div class="input-group">
-                            <label >Banco Cuenta Cliente</label>
+                            <label >Cuenta bancaria donde te depositaremos tu dinero</label>
                           <div class="selectContainer">
                             <select name='bankClientAccount' id='bankClientAccount' class="select-picker" >
                             <option value="1">BCP</option>
@@ -131,12 +158,12 @@
                         </div>
                         <div class="input-group">
                             <label for="account">Cuenta de deposito</label>
-                            <input type="text" class="form-control" placeholder="XXX-XXXXXXX-XX">
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="input-group">
+                        <!--<div class="input-group">
                             <label for="operationNumber"># de operación</label>
-                            <input type="text" class="form-control js-txt-numope" name="operationNumber" id="operationNumber" >
-                        </div>
+                            <input type="text" class="form-control js-txt-numope" readonly name="operationNumber" id="operationNumber" >
+                        </div>-->
                         <div class="input-group">
                             <label for="mail">Correo de confirmación</label>
                             <input type="text" class="form-control" name="mail" id="mail">
