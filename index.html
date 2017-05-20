@@ -90,8 +90,8 @@
             <div class="panel-heading">Registrar cambio</div>
                 <div class="panel-body panel--register-exchange">
                     <form id="registerExchange">
-                        <input type="hidden" name="user" value="john doe">
-                        <input type="hidden" name="exchangeType" value="1">
+                        <input type="hidden" id="user" name="user" value="john doe">
+                        <input type="hidden" id="exchangeRate"  name="exchangeRate" value="3.25">
                         
                         <div class="radio-group text-center">
                             <div class="btn-group" role="group">
@@ -144,8 +144,9 @@
                             <input type="text" class="form-control" name="mail" id="mail">
                         </div>
                         <div class="button-group">
-                            <button type='submit' class="btn btn-primary">Cambiar</button>
+                            <a  class="btn btn-primary" onclick="crearSolicitud();">Cambiar</a>
                         </div>
+                        <label id="msgUser" style="color: red; font-size: 24px;"></label>
                     </form>
                 </div>
             </div>
