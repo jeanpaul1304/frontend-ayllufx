@@ -1,14 +1,23 @@
 $(document).ready(function(){
    
 
-console.log('is ready');
 checkboxChange();
 
 $('#bankClientAccount').selectpicker('refresh');
 $('#bankAylluAccount').selectpicker('refresh');
+$('#bankToPay').selectpicker('refresh');
+
+function bindCalculator(){
+    $('.js-btn-radios').on('click',function(){
+        let $this = $(this)
+        console.log($this.val())
+    })
+}
+bindCalculator()
 });
 function checkboxChange(){
  $('.js-btn-radios').on('click',function(e){
+     let $this
      $this = $(this)
      $this.parent().find('.active').removeClass('active')
      $this.addClass('active')
