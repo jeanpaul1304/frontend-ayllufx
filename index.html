@@ -22,16 +22,61 @@
     
 </head>
 <body>
+<script type="text/javascript">
+    $(document).ready(function(){
+   
+
+checkboxChange();
+
+$('#bankClientAccount').selectpicker('refresh');
+$('#bankAylluAccount').selectpicker('refresh');
+$('#bankToPay').selectpicker('refresh');
+
+function bindCalculator(){
+    $('.js-btn-radios').on('click',function(){
+        let $this = $(this)
+        console.log($this.val())
+    })
+}
+bindCalculator()
+});
+</script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+        
+        <div class="col-md-8" >
             <div class="navbar-header">
                 <a href="javascript:;" class="navbar-brand">
                     AylluFX - Un cambio de divisas mas justa ;)
                 </a>
             </div>
+            </div>
+            <div class="col-md-2" >
+            <div class="navbar">
+                <a href="javascript:;" class="navbar-brand">
+                    Nueva Solicitud
+                </a>
+            </div>
+            </div>
+            <div class="col-md-2" >
+            <div class="navbar">
+                <a href="javascript:;" class="navbar-brand">
+                    Mis Solicitudes
+                </a>
+            </div>
+            </div>
         </div>
     </nav>
+     <nav  class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuInfo" class="active"  onclick="cambiarVista('Info');"><a href="#">¿Cómo Funciona?</a></li>
+              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuCompara"   onclick="cambiarVista('U');"><a href="#">Compara</a></li>
+              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuCalculadora"  onclick="cambiarVista('C');"><a href="#">Calculadora</a></li>
+              <li data-toggle="collapse" data-target=".navbar-collapse" id="menuGrafico"  onclick="cambiarVista('G');"><a href="#">Analiza</a></li>
+              <!--li><a href="#">Login</a></li-->
+            </ul>
+          </div>
     <div class="container main-container">
         <div class="panel panel-primary">
             <div class="panel-heading">Cotiza</div>
@@ -54,7 +99,7 @@
                         </label>
                         <div class="ctn-addon">
                             <span class="input-group-addon" id="myCurrecy">S/</span>
-                            <input type="text" class="form-control" name="myMoney" id="myMoney">
+                            <input type="text" class="form-control" name="myMoney" id="myMoney" onchange="calcularTipoCambio();">
                         </div>
                     </div>
                     <div class="input-group">
@@ -63,7 +108,7 @@
                         </label>
                         <div class="ctn-addon">
                             <span class="input-group-addon" id="platformCurrecy">$</span>
-                            <input type="text" class="form-control" name="myMoney" id="myCashback">
+                            <input type="text" class="form-control" name="myMoney" id="myCashback" readonly="true" >
                         </div>
                     </div>
                     <div class="input-group">
@@ -77,6 +122,10 @@
                             </select>
                         </div>
                     </div>
+                     <div class="input-group">
+                            <label for="mail">Correo de confirmación</label>
+                            <input type="text" class="form-control" name="mail" id="mail">
+                        </div>
                     <div class="ctn-resumen">
                         <h3>Resumen</h3>
                         <ul>
@@ -92,7 +141,7 @@
                         </ul>
                     </div>
                     <div class="button-group">
-                        <a href="javascript:;" class="btn btn-primary">
+                        <a onclick="crearSolicitud();" class="btn btn-primary">
                             Continuar
                             <i class="fa fa-arrow-right"></i>
                         </a>
@@ -100,11 +149,12 @@
                 </div>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading">Registrar cambio</div>
+            <div class="panel-heading">Completar Solicitud</div>
                 <div class="panel-body panel--register-exchange">
                     <form id="registerExchange">
                         <input type="hidden" id="user" name="user" value="john doe">
                         <input type="hidden" id="exchangeRate"  name="exchangeRate" value="3.25">
+                        <input type="hidden" id="idSolicitud"  name="exchangeRate" value="3.25">
                         <div class="input-group">
                             <label for="amount">Monto</label>
                             <input type="text" class="form-control" name="amount" id="monto">
@@ -132,12 +182,9 @@
                             <label for="operationNumber"># de operación</label>
                             <input type="text" class="form-control" name="operationNumber" id="operationNumber" >
                         </div>
-                        <div class="input-group">
-                            <label for="mail">Correo de confirmación</label>
-                            <input type="text" class="form-control" name="mail" id="mail">
-                        </div>
+                       
                         <div class="button-group">
-                            <a  class="btn btn-primary" onclick="crearSolicitud();">Cambiar</a>
+                            <a  class="btn btn-primary" onclick="actualizarSolicitud();">Cambiar</a>
                         </div>
                         <div class="input-group">
                         <label id="msgUser" style="color: green; font-size: 24px; text-align: center;"></label>
