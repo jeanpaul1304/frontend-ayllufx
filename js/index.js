@@ -29,9 +29,11 @@ function calculatePen(){
     let tc = 3.25
     let amount = $('.js-myMoneyFirst').val()
     let newAmount = (amount/3.25).toFixed(3)
+    let banco = (amount/3.5).toFixed(3)
     let comision = (newAmount*0.01).toFixed(2)
     $('.js-finalChange').text(' $'+newAmount)
     $('.js-finalComision').text(' $'+comision)
+    $('.js-finalBanco').text(' $'+banco)
     $('.js-finalCash').text(' $'+(newAmount-comision).toFixed(3))
     $('.js-myMoney').val(amount)
     $('.js-txt-changeAmount').val(newAmount-comision)
@@ -41,9 +43,11 @@ function calculateDollar(){
     let tc = 3.25
     let amount = $('.js-myMoneyFirst').val()
     let newAmount = (amount*3.25).toFixed(3)
+    let banco = (amount*3.0).toFixed(3)
     let comision = (amount*0.01).toFixed(2)
     $('.js-finalChange').text(' S/'+newAmount)
     $('.js-finalComision').text(' S/'+comision)
+    $('.js-finalBanco').text(' S/'+banco)
     $('.js-finalCash').text(' S/'+(newAmount-comision).toFixed(3))
     $('.js-myMoney').val(amount)
     $('.js-txt-changeAmount').val(newAmount-comision)
