@@ -99,7 +99,9 @@ bindCalculator()
                         </label>
                         <div class="ctn-addon">
                             <span class="input-group-addon" id="myCurrecy">S/</span>
-                            <input type="text" class="form-control" name="myMoney" id="myMoney" onchange="calcularTipoCambio();">
+
+                            <input type="text" class="form-control js-txt-amount" name="myMoney" id="myMoney">
+
                         </div>
                     </div>
                     <div class="input-group">
@@ -108,7 +110,8 @@ bindCalculator()
                         </label>
                         <div class="ctn-addon">
                             <span class="input-group-addon" id="platformCurrecy">$</span>
-                            <input type="text" class="form-control" name="myMoney" id="myCashback" readonly="true" >
+                            <input type="text" class="form-control js-txt-changeAmount" name="myMoney" id="myCashback">
+
                         </div>
                     </div>
                     <div class="input-group">
@@ -140,6 +143,11 @@ bindCalculator()
                             </li>
                         </ul>
                     </div>
+                    
+                    <div class="input-group">
+                        <label for="operationNumber"># de operación</label>
+                        <input type="text" class="form-control js-txt-numope" name="operationNumber" id="operationNumber" >
+                    </div>
                     <div class="button-group">
                         <a onclick="crearSolicitud();" class="btn btn-primary">
                             Continuar
@@ -157,11 +165,11 @@ bindCalculator()
                         <input type="hidden" id="idSolicitud"  name="exchangeRate" value="3.25">
                         <div class="input-group">
                             <label for="amount">Monto</label>
-                            <input type="text" class="form-control" name="amount" id="monto">
+                            <input type="text" class="form-control js-txt-amount" name="amount" id="monto">
                         </div>
                         <div class="input-group">
                             <label for="">Monto de cambio aproximado</label>
-                            <input type="text" class="form-control" name="aproxAmount" id="aproxAmount">
+                            <input type="text" class="form-control js-txt-changeAmount" name="aproxAmount" id="aproxAmount">
                         </div>
                         <div class="input-group">
                             <label >Banco Cuenta Cliente</label>
@@ -180,7 +188,7 @@ bindCalculator()
                         </div>
                         <div class="input-group">
                             <label for="operationNumber"># de operación</label>
-                            <input type="text" class="form-control" name="operationNumber" id="operationNumber" >
+                            <input type="text" class="form-control js-txt-numope" name="operationNumber" id="operationNumber" >
                         </div>
                        
                         <div class="button-group">
