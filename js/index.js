@@ -72,9 +72,9 @@ function crearSolicitud(){
 	var bankClientAccount=$("#bankClientAccount").val();
 	var amount=$("#myMoney").val();
 	var toCurrencyValue=""
-	var toCurrencyRadio = $(".js-btn-radios input[type='radio']:checked");
+	var toCurrencyRadio = $(".js-btn-radios.active");
 	if(toCurrencyRadio.length>0)
-		toCurrencyValue=toCurrencyRadio.val();
+		toCurrencyValue=toCurrencyRadio.attr("data-value");
   var bankToPay=$("#bankToPay").val();
 	var operationNumber=$("#operationNumber").val();
 
@@ -82,13 +82,13 @@ function crearSolicitud(){
 	var data="?idCliente="+idUser+
   "&nombreCliente="+user+
 	"&tipoCambio="+exchangeRate+
-	"&cuentaBancoDestino="+clientAccount+
-	"&bancoDestino="+bankClientAccount+
+	"&cuentaBancoDestino="+
+	"&bancoDestino="+
 	"&montoEntregado="+amount+
 	"&bancoOperacion="+bankToPay+
 	"&numeroOperacion="+operationNumber+
 	"&monedaOrigen="+toCurrencyValue+
-	"&monedaDestino="+(toCurrencyValue=="PEN"?"PEN":"USD")+
+	"&monedaDestino="+(toCurrencyValue=="soles"?"dolar":"soles")+
 	"&mail="+mail;
 
 	var data1 ={
@@ -142,9 +142,9 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 	var bankClientAccount=$("#bankClientAccount").val();
 	var myMoney=$("#myMoney").val();
 	var toCurrencyValue=""
-	var toCurrencyRadio = $("#toCurrency input[type='radio']:checked");
+	var toCurrencyRadio = $(".js-btn-radios.active");
 	if(toCurrencyRadio.length>0)
-		toCurrencyValue=toCurrencyRadio.val();
+		toCurrencyValue=toCurrencyRadio.attr("data-value");
 	var bankToPay=$("#bankToPay").val();
 	var operationNumber=$("#operationNumber").val();
 	
@@ -156,9 +156,10 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 	"&bancoDestino="+bankClientAccount+
 	"&montoEntregado="+myMoney+
 	"&bancoOperacion="+bankToPay+
+  "&estadoSolicitud="+"En Proceso"+
 	"&numeroOperacion="+operationNumber+
 	"&monedaOrigen="+toCurrencyValue+
-	"&monedaDestino="+(toCurrencyValue=="PEN"?"PEN":"USD")+
+	"&monedaDestino="+(toCurrencyValue=="soles"?"dolar":"soles")+
 	"&mail="+mail;
 
 /*
