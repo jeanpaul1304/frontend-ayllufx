@@ -150,13 +150,13 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 	
 	var mail=$("#mail").val();
 	var data="?idSolicitud="+idSolicitud+
-	"idCliente="+user+
+	"&idCliente="+user+
 	"&tipoCambio="+exchangeRate+
 	"&cuentaBancoDestino="+clientAccount+
 	"&bancoDestino="+bankClientAccount+
 	"&montoEntregado="+myMoney+
 	"&bancoOperacion="+bankToPay+
-  "&estadoSolicitud="+"En Proceso"+
+  "&estado="+"En Proceso"+
 	"&numeroOperacion="+operationNumber+
 	"&monedaOrigen="+toCurrencyValue+
 	"&monedaDestino="+(toCurrencyValue=="soles"?"dolar":"soles")+
@@ -190,7 +190,7 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 		success: function(data) {
 				
 				if(data.errorCode==0)
-					$("#msgUser").html(data.entity);
+					$("#msgUser").html("En máximo 1 día se le abonará el dinero");
 			},
 	  	error: function (error) {
 	  				 // alert("Ocurrio un error");
@@ -344,8 +344,27 @@ function consultarSolicitudesAdmin(){
 
     	
     }
-    function consultarSolicitudClientes(idCliente){
-    	
+    function aprobar(idSolicitud){
+      var data="?idSolicitud="+idSolicitud+
+  "&estado=Completado";
+   $.ajax({
+    type: "POST",
+    //datatype: 'json',
+    //contentType: false,
+    url: urlServicios+"/Ayllufx_rest/restDummy/solicitud/actualizar"+data, 
+    
+    success: function(data) {
+        
+        
+      },
+      error: function (error) {
+             // alert("Ocurrio un error");
+                    
+                }
+            });
+
+
+      	
     }
 function consultarSolicitudUnitaria(idSolicitud){
     	
