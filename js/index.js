@@ -1,27 +1,54 @@
 
 function cargarTablaMarcacionesAyer(){
+	var user = $("#user").val();
+	var exchangeRate=$("#exchangeRate").val();
+	var clientAccount=$("#clientAccount").val();
+	var bankClientAccount=$("#bankClientAccount").val();
 	var amount=$("#amount").val();
-	var user = $("#amount").val();
-	var toCurrency = $("#amount").val();
-	var fecha =
-				 ("0" + (currentdate.getDate()-1) ).slice(-2) + "-"   
-				 + ("0" + (currentdate.getMonth()+1) ).slice(-2) 
-				+ "-"  + (currentdate.getFullYear()); 
-	if (local==undefined)
-		local="";
+	var toCurrencyValue=""
+	var toCurrencyRadio = $("#toCurrency input[type='radio']:checked");
+	if(toCurrencyRadio.length>0)
+		toCurrencyValue=toCurrencyRadio.val();
+	var bankAylluAccount=$("#bankAylluAccount").val();
+	var operationNumber=$("#operationNumber").val();
+	
+	var mail=$("#mail").val();
+	
+	var data ={
+		idCliente:user,
+ tipoCambio:exchangeRate,
+ cuentaBancoDestino:clientAccount,
+ bancoDestino:bankClientAccount,
+ montoEntregado:amount,
+ bancoOperacion:bankAylluAccount,
+ numeroOperacion:operationNumber,
+ monedaOrigen:toCurrencyValue,
+ monedaDestino:(toCurrencyValue=="PEN"?"PEN":"USD"),
+ mail:mail
+
+	}; 
+
+	/*
+	"{statusCode:0,
+entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
+}"*/
+
 	 $.ajax({
 		type: "POST",
-		async:false, 
-		datatype: 'json',
+		datatype: 'jsonp',
 		contentType: "application/json; charset=utf -8",
-		url: "http://192.168.65.25:8080/Ayllufx_rest/"+local+"&fecha="+fecha, 
+		url: "http://192.168.65.25:8080/Ayllufx_rest/", 
+		data: data,
 		success: function(data) {
-			$("#tablaProfes").html(data);
-				
+				var rpta=JSON.parse(data);
+				if(rpta.statusCode==0)
+					$("#msgUser").html(rpta.entity);
 			},
 	  	error: function (error) {
-	  				  alert("Ocurrio un error, marcar manualmente");
+	  				  alert("Ocurrio un error");
 	                  return -2;
 	              }
 		});
 }
+
+
