@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css"/>
@@ -37,7 +36,6 @@ bindCalculator();
 function bindCalculator(){
     $('.js-btn-radios').on('click',function(){
         let $this = $(this)
-        console.log($this.val())
     })
 }
 
@@ -86,6 +84,7 @@ bindCalculator()
               <!--li><a href="#">Login</a></li-->
             </ul>
           </div>
+    </nav>
     <div class="container main-container" >
         <div class="panel panel-primary" id="paso1">
             <div class="panel-heading">Cotiza</div>
@@ -97,9 +96,13 @@ bindCalculator()
                         </div>
                     </div>
                     <h4 class="text-center">
-                        Tenemos el mejor tipo de cambio para ti: 
-                        <span class="show-amount">3.250</span>
+                       <b> Tenemos el mejor tipo de cambio para todos</b>: 
+                        <br/>
+                        <span class="show-amount label label-success">3.250</span>
                     </h4>
+                    <p class="text-center">
+                        <i>Los montos fuera de aylluFX: TC: 3.50 TV: 3.00</i>
+                    </p>
                     <div class="input-group">
                         <label for="myMoney">
                             Tu tienes
@@ -149,25 +152,26 @@ bindCalculator()
                         <label for="mail">Correo de confirmación</label>
                         <input type="text" class="form-control" name="mail" id="mail">
                     </div>
-                    <div class="input-group ctn-resumen">
-                        <h3>Estas a un paso de cambiar tu dinero a una tasa increible!</h3>
-                        <ul>
-                            <li>
-                                <label for="#">Monto a depositar:</label>
-                                <span class="js-initialCash"></span>
-                            </li>
-                            <li>
-                                <label for="">Número de cuenta:</label>
-                                <span class="js-aylluaccount"></span>
-                            </li>
-                            <li>
-                                <label for="">Código interbancario:</label>
-                                <span class="js-aylluaccountCCI"></span>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="input-group">
                         <div class="alert alert-warning" role="alert">
+                            
+                            <div class="ctn-resumen">
+                                <h3>Estas a un paso de cambiar tu dinero a una tasa increible!</h3>
+                                <ul>
+                                    <li>
+                                        <label for="#">Monto a depositar:</label>
+                                        <span class="js-initialCash"></span>
+                                    </li>
+                                    <li>
+                                        <label for="">Número de cuenta:</label>
+                                        <span class="js-aylluaccount"></span>
+                                    </li>
+                                    <li>
+                                        <label for="">Código interbancario:</label>
+                                        <span class="js-aylluaccountCCI"></span>
+                                    </li>
+                                </ul>
+                            </div>
                             <h4>Recuerda!</h4>
                             <p>Puedes usar las web o aplicaciones de los bancos para realizar rapidamente tu deposito</p>
                             <p>Luego de realizada tu operacion, copia el número para terminar con el proceso</p>

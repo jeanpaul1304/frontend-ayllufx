@@ -2,7 +2,7 @@
     float:none !important;
 }
 .main-container{
-    margin-top:70px;
+    margin-top:20px;
 }
 .button-group{
     margin-top:10px;
@@ -43,4 +43,16 @@
 .navbar{
     margin:0;
     padding:0;
+}
+.show-amount{
+    font-size:18px;
+    margin-top:10px;
+    display: inline-block;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .panel--register-exchange .input-group, .panel--register-exchange .button-group{
+        width: 100%
+    }
 }
