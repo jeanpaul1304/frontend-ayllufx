@@ -70,7 +70,7 @@ function crearSolicitud(){
 	var exchangeRate=$("#exchangeRate").val();
 	var clientAccount=$("#clientAccount").val();
 	var bankClientAccount=$("#bankClientAccount").val();
-	var amount=$("#amount").val();
+	var amount=$("#myMoney").val();
 	var toCurrencyValue=""
 	var toCurrencyRadio = $(".js-btn-radios input[type='radio']:checked");
 	if(toCurrencyRadio.length>0)
@@ -97,7 +97,7 @@ function crearSolicitud(){
         cuentaBancoDestino:clientAccount,
         bancoDestino:bankClientAccount,
         montoEntregado:amount,
-        bancoOperacion:bankAylluAccount,
+        bancoOperacion:bankToPay,
         numeroOperacion:operationNumber,
         monedaOrigen:toCurrencyValue,
         monedaDestino:(toCurrencyValue=="PEN"?"PEN":"USD"),
@@ -119,8 +119,8 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 		success: function(data) {
 				
 				if(data.errorCode==0)
-					$("#idSolicitud").val(data.entity.idSolicitud);
-					$("#msgUser").html(data.entity.mensaje);
+					$("#idSolicitud").val(data.entity);
+					
 
         $("#paso1").hide();
         $("#paso2").show();
@@ -140,12 +140,12 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 	var exchangeRate=$("#exchangeRate").val();
 	var clientAccount=$("#clientAccount").val();
 	var bankClientAccount=$("#bankClientAccount").val();
-	var amount=$("#amount").val();
+	var myMoney=$("#myMoney").val();
 	var toCurrencyValue=""
 	var toCurrencyRadio = $("#toCurrency input[type='radio']:checked");
 	if(toCurrencyRadio.length>0)
 		toCurrencyValue=toCurrencyRadio.val();
-	var bankAylluAccount=$("#bankAylluAccount").val();
+	var bankToPay=$("#bankToPay").val();
 	var operationNumber=$("#operationNumber").val();
 	
 	var mail=$("#mail").val();
@@ -154,8 +154,8 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 	"&tipoCambio="+exchangeRate+
 	"&cuentaBancoDestino="+clientAccount+
 	"&bancoDestino="+bankClientAccount+
-	"&montoEntregado="+amount+
-	"&bancoOperacion="+bankAylluAccount+
+	"&montoEntregado="+myMoney+
+	"&bancoOperacion="+bankToPay+
 	"&numeroOperacion="+operationNumber+
 	"&monedaOrigen="+toCurrencyValue+
 	"&monedaDestino="+(toCurrencyValue=="PEN"?"PEN":"USD")+
