@@ -20,32 +20,34 @@
     
 </head>
 <body>
-    <input type="hidden" value="autogenerar">
-    <div class="form-group">
-        <label for="amount">Monto</label>
-        <input type="text" name="amount" id="monto">
-    </div>
-    <div class="form-group">
-        <label for="toCurrencyPEN">Sol</label>
-        <input type="radio"  value="PEN" name="toCurrency" id="toCurrencyPEN">
-        <label for="toCurrencyUSD">Dolares</label>
-        <input type="radio" value="USD" name="toCurrency" id="toCurrencyUSD">
-    </div>
-    <div class="form-group">
-        <label for="account">Cuenta de deposito</label>
-        <input type="text" placeholder="XXX-XXXXXXX-XX">
-    </div>
-    <div class="form-group">
-        <label for="operationNumber"># de operación</label>
-        <input type="text" name="operationNumber" id="operationNumber" >
-    </div>
-    <div class="form-group">
-        <label for="mail">Correo de confirmación</label>
-        <input type="text" name="mail" id="mail">
-    </div>
-    <div class="form-group">
-        <button type='submit'>Cambiar</button>
-    </div>
+    <form id="registerExchange">
+        <input type="hidden" value="autogenerar">
+        <div class="form-group">
+            <label for="amount">Monto</label>
+            <input type="text" name="amount" id="monto">
+        </div>
+        <div class="form-group">
+            <label for="toCurrencyPEN">Sol</label>
+            <input type="radio"  value="PEN" name="toCurrency" id="toCurrencyPEN">
+            <label for="toCurrencyUSD">Dolares</label>
+            <input type="radio" value="USD" name="toCurrency" id="toCurrencyUSD">
+        </div>
+        <div class="form-group">
+            <label for="account">Cuenta de deposito</label>
+            <input type="text" placeholder="XXX-XXXXXXX-XX">
+        </div>
+        <div class="form-group">
+            <label for="operationNumber"># de operación</label>
+            <input type="text" name="operationNumber" id="operationNumber" >
+        </div>
+        <div class="form-group">
+            <label for="mail">Correo de confirmación</label>
+            <input type="text" name="mail" id="mail">
+        </div>
+        <div class="form-group">
+            <button type='submit'>Cambiar</button>
+        </div>
+    </form>
 	<script src="js/index.js"></script>
 </body>
 </html>
