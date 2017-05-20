@@ -1,6 +1,17 @@
+.panel--register-exchange *{
+    float:none !important;
+}
 .main-container{
     margin-top:70px;
 }
 .button-group{
     margin-top:10px;
+    text-align: center;
+}
+.panel--register-exchange .input-group, .panel--register-exchange .button-group{
+    width: 60%;
+    display: block;
+    float:none;
+    margin:0 auto;
+    padding: 5px 0;
 }
