@@ -126,7 +126,7 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
         $("#paso2").show();
 			},
 	  	error: function (error) {
-	  				  alert("Ocurrio un error");
+	  				//  alert("Ocurrio un error");
 	                  
 	              }
             }
@@ -193,7 +193,7 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 					$("#msgUser").html(data.entity);
 			},
 	  	error: function (error) {
-	  				  alert("Ocurrio un error");
+	  				 // alert("Ocurrio un error");
 	                  
 	              }
             });
@@ -337,7 +337,7 @@ function consultarSolicitudesAdmin(){
         		},*/
 			},
 	  	error: function (error) {
-	  				  alert("Ocurrio un error");
+	  				  //alert("Ocurrio un error");
 	                  
 	              }
             });
