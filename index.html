@@ -12,15 +12,26 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-slider.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap-switch-min.js"></script>
-    <!--
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-switch.min.js"></script>
 	<script src="js/bootstrap-select.js"></script>
+    <script src="js/index.js"></script>
+    <!--
 	<script src="js/bootstrap-slider.js"></script>-->
     <title>Ayllu FX</title>
     
 </head>
 <body>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+   
+   $('#bankClientAccount').selectpicker('refresh');
+   $('#bankAylluAccount').selectpicker('refresh');
+});
+</script>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -69,7 +80,7 @@
                             <label for="account">Cuenta de deposito</label>
                             <input type="text" class="form-control" placeholder="XXX-XXXXXXX-XX">
                         </div>
-                        <div class="form-group">
+                        <div class="input-group">
                             <label class="control-label">Banco Cuenta Ayllu</label>
                           <div class="selectContainer">
                             <select name='bankAylluAccount' id='bankAylluAccount' class="select-picker" >
@@ -95,6 +106,6 @@
                 </div>
             </div>
         </div>
-	<script src="js/index.js"></script>
+	
 </body>
 </html>
