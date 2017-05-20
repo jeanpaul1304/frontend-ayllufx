@@ -10,7 +10,7 @@
 	<link href="css/bootstrap-switch.css" rel="stylesheet">
 	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-slider.css"/>
-    <link rel="stylesheet" href="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<!--<script src="js/bootstrap-switch.js"></script>
@@ -20,34 +20,59 @@
     
 </head>
 <body>
-    <form id="registerExchange">
-        <input type="hidden" value="autogenerar">
-        <div class="form-group">
-            <label for="amount">Monto</label>
-            <input type="text" name="amount" id="monto">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="javascript:;" class="navbar-brand">
+                    AylluFX - Un cambio de divisas mas justa ;)
+                </a>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="toCurrencyPEN">Sol</label>
-            <input type="radio"  value="PEN" name="toCurrency" id="toCurrencyPEN">
-            <label for="toCurrencyUSD">Dolares</label>
-            <input type="radio" value="USD" name="toCurrency" id="toCurrencyUSD">
+    </nav>
+    <div class="container main-container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Registrar cambio</div>
+                <div class="panel-body">
+                    <form id="registerExchange">
+                        <input type="hidden" name="user" value="john doe">
+                        <input type="hidden" name="exchangeType" value="1">
+                        
+                        <div class="radio-group text-center">
+                            <div class="btn-group" role="group">
+                                <label for="toCurrencyPEN" class="js-btn-radios btn btn-default">USD a PEN</label>
+                                <input type="radio" checked="true" class="hide" value="PEN" name="toCurrency" id="toCurrencyPEN">
+                                <label for="toCurrencyUSD" class="js-btn-radios btn btn-default">PEN a USD</label>
+                                <input type="radio" class="hidden" value="USD" name="toCurrency" id="toCurrencyUSD">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="amount">Monto</label>
+                            <input type="text" class="form-control" name="amount" id="monto">
+                        </div>
+                        <div class="input-group">
+                            <label for="">Monto de cambio aproximado</label>
+                            <input type="text" class="form-control" name="aproxAmount" id="aproxAmount">
+                        </div>
+                        <div class="input-group">
+                            <label for="account">Cuenta de deposito</label>
+                            <input type="text" class="form-control" placeholder="XXX-XXXXXXX-XX">
+                        </div>
+                        <div class="input-group">
+                            <label for="operationNumber"># de operación</label>
+                            <input type="text" class="form-control" name="operationNumber" id="operationNumber" >
+                        </div>
+                        <div class="input-group">
+                            <label for="mail">Correo de confirmación</label>
+                            <input type="text" class="form-control" name="mail" id="mail">
+                        </div>
+                        <div class="button-group">
+                            <button type='submit' class="btn btn-primary">Cambiar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="account">Cuenta de deposito</label>
-            <input type="text" placeholder="XXX-XXXXXXX-XX">
-        </div>
-        <div class="form-group">
-            <label for="operationNumber"># de operación</label>
-            <input type="text" name="operationNumber" id="operationNumber" >
-        </div>
-        <div class="form-group">
-            <label for="mail">Correo de confirmación</label>
-            <input type="text" name="mail" id="mail">
-        </div>
-        <div class="form-group">
-            <button type='submit'>Cambiar</button>
-        </div>
-    </form>
+    </div>
 	<script src="js/index.js"></script>
 </body>
 </html>
