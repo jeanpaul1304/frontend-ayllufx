@@ -29,7 +29,7 @@
 checkboxChange();
 
 $('#bankClientAccount').selectpicker('refresh');
-$('#bankAylluAccount').selectpicker('refresh');
+
 $('#bankToPay').selectpicker('refresh');
 
 function bindCalculator(){
@@ -77,8 +77,8 @@ bindCalculator()
               <!--li><a href="#">Login</a></li-->
             </ul>
           </div>
-    <div class="container main-container">
-        <div class="panel panel-primary">
+    <div class="container main-container" >
+        <div class="panel panel-primary" id="paso1">
             <div class="panel-heading">Cotiza</div>
                 <div class="panel-body panel--register-exchange">
                     <div class="radio-group text-center">
@@ -156,13 +156,14 @@ bindCalculator()
                     </div>
                 </div>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" id="paso2" style="display: none;">
             <div class="panel-heading">Completar Solicitud</div>
                 <div class="panel-body panel--register-exchange">
-                    <form id="registerExchange">
+                    <!-- form id="registerExchange"-->
                         <input type="hidden" id="user" name="user" value="john doe">
+                        <input type="hidden" id="idUser" name="idUser" value="1">
                         <input type="hidden" id="exchangeRate"  name="exchangeRate" value="3.25">
-                        <input type="hidden" id="idSolicitud"  name="exchangeRate" value="3.25">
+                        <input type="hidden" id="idSolicitud"  name="idSolicitud" >
                         <div class="input-group">
                             <label for="amount">Monto</label>
                             <input type="text" class="form-control js-txt-amount" name="amount" id="monto">
@@ -197,7 +198,7 @@ bindCalculator()
                         <div class="input-group">
                         <label id="msgUser" style="color: green; font-size: 24px; text-align: center;"></label>
                         </div>
-                    </form>
+                    <!--/form-->
                 </div>
             </div>
         </div>

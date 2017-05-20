@@ -11,6 +11,8 @@ function checkboxChange(){
 
 function crearSolicitud(){
 	var user = $("#user").val();
+  var idUser = $("#idUser").val();
+  
 	var exchangeRate=$("#exchangeRate").val();
 	var clientAccount=$("#clientAccount").val();
 	var bankClientAccount=$("#bankClientAccount").val();
@@ -19,16 +21,17 @@ function crearSolicitud(){
 	var toCurrencyRadio = $(".js-btn-radios input[type='radio']:checked");
 	if(toCurrencyRadio.length>0)
 		toCurrencyValue=toCurrencyRadio.val();
-	var bankAylluAccount=$("#bankAylluAccount").val();
+  var bankToPay=$("#bankToPay").val();
 	var operationNumber=$("#operationNumber").val();
-	
+
 	var mail=$("#mail").val();
-	var data="?idCliente="+user+
+	var data="?idCliente="+idUser+
+  "&nombreCliente="+user+
 	"&tipoCambio="+exchangeRate+
 	"&cuentaBancoDestino="+clientAccount+
 	"&bancoDestino="+bankClientAccount+
 	"&montoEntregado="+amount+
-	"&bancoOperacion="+bankAylluAccount+
+	"&bancoOperacion="+bankToPay+
 	"&numeroOperacion="+operationNumber+
 	"&monedaOrigen="+toCurrencyValue+
 	"&monedaDestino="+(toCurrencyValue=="PEN"?"PEN":"USD")+
@@ -54,6 +57,7 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 
 	 $.ajax({
 		type: "POST",
+    async: false,
 		//datatype: 'json',
 		//contentType: false,
 		url: urlServicios+"/Ayllufx_rest/restDummy/solicitud/registro"+data, 
@@ -63,12 +67,17 @@ entity: ""Solicitud Registrada, se atenderá en 2 días máximo""
 				if(data.errorCode==0)
 					$("#idSolicitud").val(data.entity.idSolicitud);
 					$("#msgUser").html(data.entity.mensaje);
+
+        $("#paso1").hide();
+        $("#paso2").show();
 			},
 	  	error: function (error) {
 	  				  alert("Ocurrio un error");
 	                  
 	              }
-            });
+            }
+      );
+
     }
 
     function actualizarSolicitud(){
